@@ -9,6 +9,8 @@ h1 {
   background-color: lightblue;
   padding: 10px;
   border-radius: 10px;
+  border-color: darkblue;
+  border-style: solid;
 }
 
 #header-pane-toggle {

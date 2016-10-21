@@ -12,7 +12,7 @@ import { Food } from './food.model';
       (newFoodSender)="addFoodToMasterFoodList($event)"
       ></new-food>
       <statistics *ngIf="statisticsView === true"
-      (newFoodSender)="addFoodToMasterFoodList($event)"
+      [childFoodStats]="masterFoodList | foodStatPipe"
       ></statistics>
     </div>
 
@@ -43,7 +43,6 @@ export class AppComponent {
     } else {
       this.newFoodView = true;
       this.statisticsView = false;
-
     }
   }
   addFoodToMasterFoodList(food: Food) {

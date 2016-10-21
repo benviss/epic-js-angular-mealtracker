@@ -4,10 +4,11 @@ import { Food } from './food.model';
 @Component({
   selector: 'statistics',
   template: `
-    <h1></h1>
+    <h3>Total Calories: {{childFoodStats[0]}}</h3>
+    <h3>Average Calories: {{childFoodStats[1]}}</h3>
   `
 })
 
 export class StatisticsComponent {
-  @Input() childFoodList: Food[];
+  @Input() childFoodStats: number[];
 }
