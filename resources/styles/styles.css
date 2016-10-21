@@ -1,3 +1,4 @@
+
 h1 {
   color: blue;
 }
@@ -6,6 +7,24 @@ h1 {
   overflow-y: scroll;
   height:600px;
   background-color: lightblue;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#header-pane-toggle {
+  border-radius: 25px;
+  color: blue;
+  background-color: lightblue;
+  border-color: blue;
+  width: 10%;
+  position: absolute;
+  left: 45%;
+  top: 0;
+
+}
+
+.header-pane {
+  position: relative;
 }
 
 body {

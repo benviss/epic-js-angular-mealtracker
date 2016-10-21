@@ -19,7 +19,19 @@ var AppComponent = (function () {
             new food_model_1.Food("Thai Curry", "Very delicioso, also Yum", 875),
             new food_model_1.Food("Pad Thai", "also Very Yum", 975)
         ];
+        this.newFoodView = true;
+        this.statisticsView = false;
     }
+    AppComponent.prototype.switchHeaderPane = function () {
+        if (this.newFoodView) {
+            this.newFoodView = false;
+            this.statisticsView = true;
+        }
+        else {
+            this.newFoodView = true;
+            this.statisticsView = false;
+        }
+    };
     AppComponent.prototype.addFoodToMasterFoodList = function (food) {
         this.masterFoodList.push(food);
         console.log(food);
@@ -28,7 +40,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h4>Meal Tracker to the max, ya know</h4>\n    <new-food\n    (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n    ></new-food>\n\n    <food-list\n    [childFoodList]=\"masterFoodList\"\n    ></food-list>\n  </div>\n  "
+            template: "\n  <div class=\"container\">\n    <h1>Meal Tracker to the max, ya know</h1>\n    <div class=\"jumbotron header-pane\">\n      <button id=\"header-pane-toggle\" (click)=\"switchHeaderPane()\">Toggle View</button>\n      <new-food *ngIf=\"newFoodView === true\"\n      (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n      ></new-food>\n      <statistics *ngIf=\"statisticsView === true\"\n      (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n      ></statistics>\n    </div>\n\n\n    <food-list\n    [childFoodList]=\"masterFoodList\"\n    ></food-list>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -5,10 +5,17 @@ import { Food } from './food.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h4>Meal Tracker to the max, ya know</h4>
-    <new-food
-    (newFoodSender)="addFoodToMasterFoodList($event)"
-    ></new-food>
+    <h1>Meal Tracker to the max, ya know</h1>
+    <div class="jumbotron header-pane">
+      <button id="header-pane-toggle" (click)="switchHeaderPane()">Toggle View</button>
+      <new-food *ngIf="newFoodView === true"
+      (newFoodSender)="addFoodToMasterFoodList($event)"
+      ></new-food>
+      <statistics *ngIf="statisticsView === true"
+      (newFoodSender)="addFoodToMasterFoodList($event)"
+      ></statistics>
+    </div>
+
 
     <food-list
     [childFoodList]="masterFoodList"
@@ -25,6 +32,20 @@ export class AppComponent {
     new Food("Thai Curry", "Very delicioso, also Yum", 875),
     new Food("Pad Thai", "also Very Yum", 975)
   ];
+
+  public newFoodView = true;
+  public statisticsView = false;
+
+  switchHeaderPane() {
+    if(this.newFoodView) {
+      this.newFoodView = false;
+      this.statisticsView = true;
+    } else {
+      this.newFoodView = true;
+      this.statisticsView = false;
+
+    }
+  }
   addFoodToMasterFoodList(food: Food) {
     this.masterFoodList.push(food);
     console.log(food);

@@ -4,7 +4,6 @@ import { Food } from './food.model';
 @Component({
   selector: 'new-food',
   template: `
-  <div class="jumbotron">
     <h3>Enter Food Info: </h3>
     <div class="new-food-input">
       <input #name placeholder="Name">
@@ -12,7 +11,6 @@ import { Food } from './food.model';
       <input type="number" #calories placeholder="Calories(Be Honest...)">
       <button (click)="addFood(name.value , details.value, calories.value)">Submit Food</button>
     </div>
-  </div>
   `
 })
 
