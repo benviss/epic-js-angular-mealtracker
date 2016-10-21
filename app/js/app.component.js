@@ -13,7 +13,7 @@ var food_model_1 = require('./food.model');
 var AppComponent = (function () {
     function AppComponent() {
         this.masterFoodList = [
-            new food_model_1.Food("General tsao", "yum", 750),
+            new food_model_1.Food("Kung Pao Chicken", "yum", 750),
             new food_model_1.Food("CheeseBurger", "also Yum", 675),
             new food_model_1.Food("BreakFast Burrito", "It was for Dinner", 575),
             new food_model_1.Food("Thai Curry", "Very delicioso, also Yum", 875),

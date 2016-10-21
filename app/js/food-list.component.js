@@ -13,7 +13,13 @@ var FoodListComponent = (function () {
     function FoodListComponent() {
         this.calorieAscension = "none";
         this.calorieFilter = "none";
+        this.selectedFood = null;
+        this.selectedFoodSender = new core_1.EventEmitter();
     }
+    FoodListComponent.prototype.selectFood = function (food) {
+        this.selectedFood = food;
+        console.log(food);
+    };
     FoodListComponent.prototype.onCalorieAscensionChange = function (newAscension) {
         this.calorieAscension = newAscension;
     };
@@ -21,14 +27,21 @@ var FoodListComponent = (function () {
         console.log(newFilter);
         this.calorieFilter = newFilter;
     };
+    FoodListComponent.prototype.finishEdit = function () {
+        this.selectedFood = null;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
     ], FoodListComponent.prototype, "childFoodList", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], FoodListComponent.prototype, "selectedFoodSender", void 0);
     FoodListComponent = __decorate([
         core_1.Component({
             selector: 'food-list',
-            template: "\n  <label for=\"caloriesSort\">Sort by Calories</label>\n  <select (change)=\"onCalorieAscensionChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high\">High to Low</option>\n    <option value=\"low\">Low to High</option>\n  </select>\n  <select (change)=\"onCalorieFilterChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high-range\">Higher Than 500 Calories</option>\n    <option value=\"low-range\">Lower Than 500 Calories</option>\n  </select>\n  <div *ngFor=\"let food of childFoodList | caloriesAscensionPipe:calorieAscension | caloriesPipe: calorieFilter\">\n    <hr>\n    <p>Name: {{food.name}}</p>\n    <p>Details: {{food.details}}</p>\n    <p>Calories: {{food.calories}}</p>\n    <hr>\n  </div>\n  "
+            template: "\n\n  <label for=\"caloriesSort\">Sort by Calories</label>\n  <select (change)=\"onCalorieAscensionChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high\">High to Low</option>\n    <option value=\"low\">Low to High</option>\n  </select>\n  <select (change)=\"onCalorieFilterChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high-range\">Higher Than 500 Calories</option>\n    <option value=\"low-range\">Lower Than 500 Calories</option>\n  </select>\n  <div class=\"scrollable\">\n    <div *ngFor=\"let food of childFoodList | caloriesAscensionPipe:calorieAscension | caloriesPipe: calorieFilter\">\n      <div (click)=\"selectFood(food)\" *ngIf=\"selectedFood !== food\">\n        <hr>\n        <p>Name: {{food.name}}</p>\n        <p>Details: {{food.details}}</p>\n        <p>Calories: {{food.calories}}</p>\n        <hr>\n      </div>\n      <div *ngIf=\"selectedFood === food\">\n        <edit-food\n        [(childFood)]=\"selectedFood\"\n        (finishEditSender)=\"finishEdit()\"\n        ></edit-food>\n      </div>\n    </div>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], FoodListComponent);

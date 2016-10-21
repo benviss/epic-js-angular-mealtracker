@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { NewFoodComponent }   from './new-food.component';
+import { EditFoodComponent }   from './edit-food.component';
 import { FoodListComponent }   from './food-list.component';
 import { CaloriesAscensionFilterPipe }   from './calories-ascension-filter.pipe';
 import { CaloriesFilterPipe }   from './calories-filter.pipe';
@@ -16,6 +17,7 @@ import { CaloriesFilterPipe }   from './calories-filter.pipe';
   declarations: [
     AppComponent,
     NewFoodComponent,
+    EditFoodComponent,
     CaloriesAscensionFilterPipe,
     CaloriesFilterPipe,
     FoodListComponent

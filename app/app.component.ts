@@ -17,7 +17,7 @@ import { Food } from './food.model';
 
 export class AppComponent {
   public masterFoodList: Food[] = [
-    new Food("General tsao", "yum", 750),
+    new Food("Kung Pao Chicken", "yum", 750),
     new Food("CheeseBurger", "also Yum", 675),
     new Food("BreakFast Burrito", "It was for Dinner", 575),
     new Food("Thai Curry", "Very delicioso, also Yum", 875),
