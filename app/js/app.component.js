@@ -11,11 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
+        this.masterFoodList = [];
     }
+    AppComponent.prototype.addFoodToMasterFoodList = function (food) {
+        this.masterFoodList.push(food);
+        console.log(food);
+        console.log(this.masterFoodList);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h4>Meal Tracker to the max, ya know</h4>\n  \n  "
+            template: "\n  <h4>Meal Tracker to the max, ya know</h4>\n  <new-food\n  (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n  ></new-food>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
