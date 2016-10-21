@@ -9,9 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var food_model_1 = require('./food.model');
 var AppComponent = (function () {
     function AppComponent() {
-        this.masterFoodList = [];
+        this.masterFoodList = [
+            new food_model_1.Food("General tsao", "yum", 750),
+            new food_model_1.Food("CheeseBurger", "also Yum", 675),
+            new food_model_1.Food("BreakFast Burrito", "It was for Dinner", 575),
+            new food_model_1.Food("Thai Curry", "Very delicioso, also Yum", 875),
+            new food_model_1.Food("Pad Thai", "also Very Yum", 975)
+        ];
     }
     AppComponent.prototype.addFoodToMasterFoodList = function (food) {
         this.masterFoodList.push(food);
@@ -21,7 +28,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h4>Meal Tracker to the max, ya know</h4>\n  <new-food\n  (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n  ></new-food>\n  "
+            template: "\n  <h4>Meal Tracker to the max, ya know</h4>\n  <new-food\n  (newFoodSender)=\"addFoodToMasterFoodList($event)\"\n  ></new-food>\n\n  <food-list\n  [childFoodList]=\"masterFoodList\"\n  ></food-list>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
