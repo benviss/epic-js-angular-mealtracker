@@ -4,14 +4,16 @@ import { Food } from './food.model';
 @Component({
   selector: 'my-app',
   template: `
-  <h4>Meal Tracker to the max, ya know</h4>
-  <new-food
-  (newFoodSender)="addFoodToMasterFoodList($event)"
-  ></new-food>
+  <div class="container">
+    <h4>Meal Tracker to the max, ya know</h4>
+    <new-food
+    (newFoodSender)="addFoodToMasterFoodList($event)"
+    ></new-food>
 
-  <food-list
-  [childFoodList]="masterFoodList"
-  ></food-list>
+    <food-list
+    [childFoodList]="masterFoodList"
+    ></food-list>
+  </div>
   `
 })
 

@@ -25,7 +25,7 @@ var NewFoodComponent = (function () {
     NewFoodComponent = __decorate([
         core_1.Component({
             selector: 'new-food',
-            template: "\n  <h3>Enter Food Info: </h3>\n  <input #name placeholder=\"Name\">\n  <input #details placeholder=\"Details\">\n  <input type=\"number\" #calories placeholder=\"Calories(Be Honest...)\">\n  <button (click)=\"addFood(name.value , details.value, calories.value)\">Submit Food</button>\n  "
+            template: "\n  <div class=\"jumbotron\">\n    <h3>Enter Food Info: </h3>\n    <div class=\"new-food-input\">\n      <input #name placeholder=\"Name\">\n      <input #details placeholder=\"Details\">\n      <input type=\"number\" #calories placeholder=\"Calories(Be Honest...)\">\n      <button (click)=\"addFood(name.value , details.value, calories.value)\">Submit Food</button>\n    </div>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], NewFoodComponent);

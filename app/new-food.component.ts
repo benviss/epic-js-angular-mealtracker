@@ -4,11 +4,15 @@ import { Food } from './food.model';
 @Component({
   selector: 'new-food',
   template: `
-  <h3>Enter Food Info: </h3>
-  <input #name placeholder="Name">
-  <input #details placeholder="Details">
-  <input type="number" #calories placeholder="Calories(Be Honest...)">
-  <button (click)="addFood(name.value , details.value, calories.value)">Submit Food</button>
+  <div class="jumbotron">
+    <h3>Enter Food Info: </h3>
+    <div class="new-food-input">
+      <input #name placeholder="Name">
+      <input #details placeholder="Details">
+      <input type="number" #calories placeholder="Calories(Be Honest...)">
+      <button (click)="addFood(name.value , details.value, calories.value)">Submit Food</button>
+    </div>
+  </div>
   `
 })
 

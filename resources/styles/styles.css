@@ -4,5 +4,22 @@ h1 {
 
 .scrollable {
   overflow-y: scroll;
-  height:400px;
+  height:600px;
+  background-color: lightblue;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.new-food-input {
+  width: 100%;
+}
+
+.new-food-input input{
+  width: 20%;
+}
+
+.new-food-input button{
+  width: 15%;
 }
