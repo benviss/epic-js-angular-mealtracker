@@ -11,7 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var FoodListComponent = (function () {
     function FoodListComponent() {
+        this.calorieAscension = "none";
+        this.calorieFilter = "none";
     }
+    FoodListComponent.prototype.onCalorieAscensionChange = function (newAscension) {
+        this.calorieAscension = newAscension;
+    };
+    FoodListComponent.prototype.onCalorieFilterChange = function (newFilter) {
+        console.log(newFilter);
+        this.calorieFilter = newFilter;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
@@ -19,7 +28,7 @@ var FoodListComponent = (function () {
     FoodListComponent = __decorate([
         core_1.Component({
             selector: 'food-list',
-            template: "\n  <div *ngFor=\"let food of childFoodList\">\n    <hr>\n    <p>Name: {{food.name}}</p>\n    <p>Details: {{food.details}}</p>\n    <p>Calories: {{food.calories}}</p>\n    <hr>\n  </div>\n  "
+            template: "\n  <label for=\"caloriesSort\">Sort by Calories</label>\n  <select (change)=\"onCalorieAscensionChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high\">High to Low</option>\n    <option value=\"low\">Low to High</option>\n  </select>\n  <select (change)=\"onCalorieFilterChange($event.target.value)\">\n    <option value=\"none\" selected=\"selected\">No Sort</option>\n    <option value=\"high-range\">Higher Than 500 Calories</option>\n    <option value=\"low-range\">Lower Than 500 Calories</option>\n  </select>\n  <div *ngFor=\"let food of childFoodList | caloriesAscensionPipe:calorieAscension | caloriesPipe: calorieFilter\">\n    <hr>\n    <p>Name: {{food.name}}</p>\n    <p>Details: {{food.details}}</p>\n    <p>Calories: {{food.calories}}</p>\n    <hr>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], FoodListComponent);

@@ -14,6 +14,8 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var new_food_component_1 = require('./new-food.component');
 var food_list_component_1 = require('./food-list.component');
+var calories_ascension_filter_pipe_1 = require('./calories-ascension-filter.pipe');
+var calories_filter_pipe_1 = require('./calories-filter.pipe');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,6 +28,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 new_food_component_1.NewFoodComponent,
+                calories_ascension_filter_pipe_1.CaloriesAscensionFilterPipe,
+                calories_filter_pipe_1.CaloriesFilterPipe,
                 food_list_component_1.FoodListComponent
             ],
             bootstrap: [app_component_1.AppComponent]
