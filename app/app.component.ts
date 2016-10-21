@@ -5,7 +5,7 @@ import { Food } from './food.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>Meal Tracker to the max, ya know</h1>
+    <h1>Shape Up</h1>
     <div class="jumbotron header-pane">
       <button id="header-pane-toggle" (click)="switchHeaderPane()">Toggle View</button>
       <new-food *ngIf="newFoodView === true"
