@@ -27,16 +27,14 @@ import { Food } from './food.model';
       </div>
       <div *ngIf="selectedFood === food">
         <edit-food
-        [(childFood)]="selectedFood"
-        (finishEditSender)="finishEdit()"
+          [(childFood)]="selectedFood"
+          (finishEditSender)="finishEdit()"
         ></edit-food>
       </div>
     </div>
   </div>
   `
 })
-
-
 
 export class FoodListComponent {
   public calorieAscension: string = "none";

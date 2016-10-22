@@ -13,9 +13,9 @@ import { Food } from './food.model';
 })
 
 export class EditFoodComponent {
-@Input() childFood: Food;
-@Output() finishEditSender = new EventEmitter();
-
+  @Input() childFood: Food;
+  @Output() finishEditSender = new EventEmitter();
+  
   onFoodNameChange(name: string) {
     this.childFood.name = name;
   }

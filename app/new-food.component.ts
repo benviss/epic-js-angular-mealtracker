@@ -20,10 +20,10 @@ import { Food } from './food.model';
 })
 
 export class NewFoodComponent {
-  @Output() newFoodSender = new EventEmitter()
+  @Output() newFoodSender = new EventEmitter();
+
   addFood(name: string, details: string, calories) {
     var food: Food = new Food(name, details, parseInt(calories))
-
     this.newFoodSender.emit(food);
   }
 }

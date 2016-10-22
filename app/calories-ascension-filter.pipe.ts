@@ -10,7 +10,6 @@ export class CaloriesAscensionFilterPipe implements PipeTransform {
   transform(input: Food[], filterChoice) {
      console.log(filterChoice)
      var output: Food[] = input.slice(0);
-
      if(filterChoice === "high") {
        output.sort(function(a, b){
          return b.calories-a.calories

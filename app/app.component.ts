@@ -9,16 +9,15 @@ import { Food } from './food.model';
     <div class="jumbotron header-pane">
       <button id="header-pane-toggle" (click)="switchHeaderPane()">Toggle View</button>
       <new-food *ngIf="newFoodView === true"
-      (newFoodSender)="addFoodToMasterFoodList($event)"
+        (newFoodSender)="addFoodToMasterFoodList($event)"
       ></new-food>
-      <statistics *ngIf="statisticsView === true"
-      [childFoodStats]="masterFoodList | foodStatPipe"
+      <statistics
+        *ngIf="statisticsView === true"
+        [childFoodStats]="masterFoodList | foodStatPipe"
       ></statistics>
     </div>
-
-
     <food-list
-    [childFoodList]="masterFoodList"
+      [childFoodList]="masterFoodList"
     ></food-list>
   </div>
   `
